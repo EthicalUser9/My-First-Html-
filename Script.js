@@ -82,7 +82,7 @@ function addCar() {
         fields.year.classList.add("invalid");
         valid = false;
     }
-    if (fields.price.value && (price < 0 || price > 100000)){
+    if (fields.price.value && (price < 0 || price > 100000)) {
         fields.price.classList.add("invalid");
         valid = false;
     }
