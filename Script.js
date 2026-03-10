@@ -82,11 +82,11 @@ function addCar() {
         fields.year.classList.add("invalid");
         valid = false;
     }
-    if (fields.price.value && price < 0) {
+    if (fields.price.value && (price < 0 || price > 100000)){
         fields.price.classList.add("invalid");
         valid = false;
     }
-    if (fields.mileage.value && mileage < 0) {
+    if (fields.mileage.value && (mileage < 0)) {
         fields.mileage.classList.add("invalid");
         valid = false;
     }
