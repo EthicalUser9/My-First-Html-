@@ -23,6 +23,12 @@ const cars = [
 
 let nextId = 21;
 
+function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+    }
+
 function displayCars(carList) {
     const listings = document.getElementById("car-listings");
     listings.innerHTML = "";
@@ -32,18 +38,21 @@ function displayCars(carList) {
         return;
     }
 
-    carList.forEach(car => {
-        listings.innerHTML += `
+    let html ="";
+        carList.forEach(car => {
+            // Icons work in Visual Studio
+            html += ` 
             <div class="car-card">
-                <h2>${car.make} ${car.model}</h2>
-                <p>📅 Year: ${car.year}</p>
-                <p>🎨 Colour: ${car.colour}</p>
-                <p>📍 Mileage: ${car.mileage.toLocaleString()} miles</p>
-                <p class="price">£${car.price.toLocaleString()}</p>
-                <button onclick="deleteCar(${car.id})">Delete</button>
+                <h2> ${escapeHTML(car.make)} ${escapeHTML(car.model)}</h2>
+                <p> 📅 Year: ${escapeHTML(car.year)}</p>
+                <p> 🎨 Colour: ${escapeHTML(car.colour)}</p>
+                <p> 📍 Mileage: ${escapeHTML(car.mileage.toLocaleString())} miles </p>
+                <p class="price"> £${escapeHTML(car.price.toLocaleString())} </p>
+                <button onclick="deleteCar(${escapeHTML(car.id)})"> Delete</button>
             </div>
-        `;
-    });
+         ` ;
+        });
+        listings.innerHTML = html;
 }
 
 function getFilteredCars() {
@@ -86,6 +95,13 @@ function addCar() {
             field.classList.add("invalid");
             valid = false;
         }
+    });
+
+    ["make", "model", "colour"].forEach(key => {
+    if (fields[key].value.trim().length > 50) {
+      fields[key].classList.add("invalid");
+      valid = false;
+      }
     });
 
     const year = parseInt(fields.year.value);
