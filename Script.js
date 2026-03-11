@@ -44,7 +44,7 @@ function displayCars(carList) {
             html += ` 
             <div class="car-card">
                 <h2> ${escapeHTML(car.make)} ${escapeHTML(car.model)}</h2>
-                <p> 📅 Year: ${escapeHTML(car.year)}</p>
+                <p> 📅 Year: ${escapeHTML(String(car.year))}</p>
                 <p> 🎨 Colour: ${escapeHTML(car.colour)}</p>
                 <p> 📍 Mileage: ${escapeHTML(car.mileage.toLocaleString())} miles </p>
                 <p class="price"> £${escapeHTML(car.price.toLocaleString())} </p>
