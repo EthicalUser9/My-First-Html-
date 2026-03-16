@@ -47,7 +47,7 @@ function displayCars(carList) {
                 <p> 📅 Year: ${escapeHTML(String(car.year))}</p>
                 <p> 🎨 Colour: ${escapeHTML(car.colour)}</p>
                 <p> 📍 Mileage: ${escapeHTML(car.mileage.toLocaleString())} miles </p>
-                <p class="price"> £${escapeHTML(car.price.toLocaleString())} </p>
+                <p class="price"> ${escapeHTML(car.price.toLocaleString())} </p>
                 <button onclick="deleteCar(${escapeHTML(car.id)})"> Delete</button>
             </div>
          ` ;
