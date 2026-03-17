@@ -68,7 +68,7 @@
   <body>
     <h1>🚗 Ste's Car Search</h1> <!-- Car icon works in Visual Studio  -->
     <input type="text" id="search-bar" placeholder="Search by make or model.">
-    <div id="add-car-form">
+    <form id="add-car-form">
         <h2>Add a Car</h2>
         <input type="text" id="input-make" placeholder="Make (e.g. Ford)" maxlength="50">
         <input type="text" id="input-model" placeholder="Model (e.g. Focus)" maxlength="50">
@@ -77,8 +77,8 @@
         <input type="number" id="input-price" placeholder="Price (e.g. 5400)" min="0" max="100000">
         <input type="number" id="input-mileage" placeholder="Mileage (e.g. 50000)" min="0">
         <button onclick="addCar()">Add Car</button>
-    </div>
-    <div id="car-listings"> </div>
+    </form>
+    <section id="car-listings"> </section>
 
     <script>
         const cars =[
@@ -105,7 +105,9 @@
         ];
 
         let nextId = 21;
-    
+
+    /* This function is a safety measure to 
+    prevent harmful text from being inserted (XSS)*/
     function escapeHTML(str) {
     const div = document.createElement("div");
     div.textContent = str;

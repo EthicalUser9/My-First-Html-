@@ -23,6 +23,8 @@ const cars = [
 
 let nextId = 21;
 
+/* This function is a safety measure to 
+    prevent harmful text from being inserted (XSS)*/
 function escapeHTML(str) {
     const div = document.createElement("div");
     div.textContent = str;
