@@ -1,4 +1,4 @@
-My first website, using these resoruces.
+My first website, using these resources.
 
 https://www.ucenmanchester.ac.uk/
 
