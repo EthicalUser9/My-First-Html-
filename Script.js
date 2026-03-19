@@ -90,7 +90,7 @@ function addCar() {
 
     let valid = true;
 
-    Object.values(fields).forEach(f => f.classList.remove("invalid"));
+    Object.values(fields).forEach(field => field.classList.remove("invalid"));
 
     Object.entries(fields).forEach(([key, field]) => {
         if (!field.value.trim()) {
@@ -138,7 +138,7 @@ function addCar() {
         colour: fields.colour.value.trim(),
     });
 
-    Object.values(fields).forEach(f => f.value = "");
+    Object.values(fields).forEach(field => field.value = "");
     displayCars(getFilteredCars());
 }
 
