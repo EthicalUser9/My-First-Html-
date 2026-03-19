@@ -116,7 +116,7 @@
 
     function displayCars(carList) {
         const listings = document.getElementById("car-listings");
-        listings.innerHTML = "";
+        listings.innerHTML = ""; 
 
         if (carList.length === 0) {
             listings.innerHTML = '<p class="no-results">No cars found.</p>';
@@ -175,7 +175,7 @@ displayCars(getFilteredCars());
 
   let valid = true;
 
-  Object.values(fields).forEach(f => f.classList.remove("invalid"));
+  Object.values(fields).forEach(field => field.classList.remove("invalid"));
 
   Object.entries(fields).forEach(([key, field]) => {
     if (!field.value.trim()) {
@@ -223,7 +223,7 @@ displayCars(getFilteredCars());
     colour: fields.colour.value.trim(),
   });
 
-  Object.values(fields).forEach(f => f.value = "");
+  Object.values(fields).forEach(field => field.value = "");
   displayCars(getFilteredCars());
 }
 
