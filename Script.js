@@ -23,13 +23,6 @@ const cars = [
 
 let nextId = 21;
 
-/* This function is a safety measure to 
-    prevent harmful text from being inserted (XSS)*/
-function escapeHTML(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
-    }
 
 function displayCars(carList) {
     const listings = document.getElementById("car-listings");
@@ -40,22 +33,48 @@ function displayCars(carList) {
         return;
     }
 
-    let html ="";
+    function displayCars(carList) {
+        const listings = document.getElementById("car-listings");
+        listings.innerHTML = ""; 
+
+        if (carList.length === 0) {
+            listings.innerHTML = '<p class="no-results">No cars found.</p>';
+            return;
+        }
+
         carList.forEach(car => {
-            // Icons work in Visual Studio
-            html += ` 
-            <article class="car-card">
-                <h2> ${escapeHTML(car.make)} ${escapeHTML(car.model)}</h2>
-                <p> 📅 Year: ${escapeHTML(String(car.year))}</p>
-                <p> 🎨 Colour: ${escapeHTML(car.colour)}</p>
-                <p> 📍 Mileage: ${escapeHTML(car.mileage.toLocaleString())} miles </p>
-                <p class="price"> ${escapeHTML(car.price.toLocaleString())} </p>
-                <button onclick="deleteCar(${escapeHTML(car.id)})"> Delete</button>
-            </article>
-         ` ;
-        });
-        listings.innerHTML = html;
-}
+            const card = document.createElement("article");
+            card.className ="car-card";
+
+            const title = document.createElement("h2");
+            title.textContent = `${car.make} ${car.model}`;
+            card.appendChild(title);
+
+            const colourP = document.createElement("p");
+            colourP.textContent = `Colour: ${car.colour}`;
+            card.appendChild(colourP);
+
+            const yearP = document.createElement("p");
+            yearP.textContent = `Year: ${car.year}`;
+            card.appendChild(yearP);
+
+            const mileageP = document.createElement("p");
+            mileageP.textContent = `Mileage: ${car.mileage.toLocaleString()} miles`;
+            card.appendChild(mileageP);
+
+            const priceP = document.createElement("p");
+            priceP.className = "price";
+            priceP.textContent = `Price: £${car.price.toLocaleString()}`;
+            card.appendChild(priceP);
+
+            const deleteBtn = document.createElement("button"); // make a button object
+            deleteBtn.textContent = "Delete"; // set what it says
+            deleteBtn.addEventListener("click", () => deleteCar(car.id)); // attach a handler
+            card.appendChild(deleteBtn); // stick it on the page
+
+            listings.appendChild(card);
+        });       
+    }
 
 function getFilteredCars() {
     const searchTerm = document.getElementById("search-bar").value.toLowerCase();
