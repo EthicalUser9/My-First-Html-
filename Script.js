@@ -75,6 +75,8 @@ function getFilteredCars() {
     );
 }
 
+document.getElementById("add-car-btn").addEventListener("click", addCar);
+
 document.getElementById("search-bar").addEventListener("input", () => {
     displayCars(getFilteredCars());
 });

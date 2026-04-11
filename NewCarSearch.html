@@ -64,6 +64,7 @@
 
     </style>
     <title>Ste's Car Search</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'">
   </head>
   <body>
     <h1>🚗 Ste's Car Search</h1>
@@ -76,7 +77,7 @@
         <input type="number" id="input-year" placeholder="Year (e.g. 2020)" min="1900" max="2030">
         <input type="number" id="input-price" placeholder="Price (e.g. 5400)" min="0" max="100000">
         <input type="number" id="input-mileage" placeholder="Mileage (e.g. 50000)" min="0">
-        <button type="button" onclick="addCar()">Add Car</button>
+        <button type="button" id="add-car-btn()">Add Car</button>
     </section>
     <section id="car-listings"> </section>
 
@@ -157,6 +158,8 @@
             car.model.toLowerCase().includes(searchTerm)
         );
     }
+    
+    document.getElementById("add-car-btn").addEventListener("click", addCar);
 
     document.getElementById("search-bar").addEventListener("input", () => {
         displayCars(getFilteredCars());
