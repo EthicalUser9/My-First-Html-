@@ -23,16 +23,6 @@ const cars = [
 
 let nextId = 21;
 
-
-function displayCars(carList) {
-    const listings = document.getElementById("car-listings");
-    listings.innerHTML = "";
-
-    if (carList.length === 0) {
-        listings.innerHTML = '<p class="no-results">No cars found.</p>';
-        return;
-    }
-
     function displayCars(carList) {
         const listings = document.getElementById("car-listings");
         listings.innerHTML = ""; 
@@ -67,10 +57,10 @@ function displayCars(carList) {
             priceP.textContent = `Price: £${car.price.toLocaleString()}`;
             card.appendChild(priceP);
 
-            const deleteBtn = document.createElement("button"); // make a button object
-            deleteBtn.textContent = "Delete"; // set what it says
-            deleteBtn.addEventListener("click", () => deleteCar(car.id)); // attach a handler
-            card.appendChild(deleteBtn); // stick it on the page
+            const deleteBtn = document.createElement("button"); 
+            deleteBtn.textContent = "Delete"; 
+            deleteBtn.addEventListener("click", () => deleteCar(car.id)); 
+            card.appendChild(deleteBtn); 
 
             listings.appendChild(card);
         });       
