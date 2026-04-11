@@ -135,7 +135,7 @@ function addCar() {
     }
 
     if (!valid) {
-        alert("Please check the highlighted fields.");
+        document.getElementById("form-error").textContent = "Please check the highlighted fields for errors.";
         return;
     }
 
@@ -150,6 +150,7 @@ function addCar() {
     });
 
     Object.values(fields).forEach(field => field.value = "");
+    document.getElementById("form-error").textContent = "";
     displayCars(getFilteredCars());
 }
 
