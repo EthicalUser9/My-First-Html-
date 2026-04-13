@@ -8,9 +8,10 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 
 https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting
 
-https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
+
+https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 
 https://htmlcheatsheet.com/css/
 
