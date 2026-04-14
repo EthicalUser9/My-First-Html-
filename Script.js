@@ -23,48 +23,48 @@ const cars = [
 
 let nextId = 21;
 
-    function displayCars(carList) {
-        const listings = document.getElementById("car-listings");
-        listings.innerHTML = ""; 
+function displayCars(carList) {
+    const listings = document.getElementById("car-listings");
+    listings.innerHTML = ""; 
 
-        if (carList.length === 0) {
+    if (carList.length === 0) {
             listings.innerHTML = '<p class="no-results">No cars found.</p>';
             return;
-        }
-
-        carList.forEach(car => {
-            const card = document.createElement("article");
-            card.className ="car-card";
-
-            const title = document.createElement("h2");
-            title.textContent = `${car.make} ${car.model}`;
-            card.appendChild(title);
-
-            const colourP = document.createElement("p");
-            colourP.textContent = `Colour: ${car.colour}`;
-            card.appendChild(colourP);
-
-            const yearP = document.createElement("p");
-            yearP.textContent = `Year: ${car.year}`;
-            card.appendChild(yearP);
-
-            const mileageP = document.createElement("p");
-            mileageP.textContent = `Mileage: ${car.mileage.toLocaleString()} miles`;
-            card.appendChild(mileageP);
-
-            const priceP = document.createElement("p");
-            priceP.className = "price";
-            priceP.textContent = `Price: £${car.price.toLocaleString()}`;
-            card.appendChild(priceP);
-
-            const deleteBtn = document.createElement("button"); 
-            deleteBtn.textContent = "Delete"; 
-            deleteBtn.addEventListener("click", () => deleteCar(car.id)); 
-            card.appendChild(deleteBtn); 
-
-            listings.appendChild(card);
-        });       
     }
+
+    carList.forEach(car => {
+        const card = document.createElement("article");
+        card.className ="car-card";
+
+        const title = document.createElement("h2");
+        title.textContent = `${car.make} ${car.model}`;
+        card.appendChild(title);
+
+        const colourP = document.createElement("p");
+        colourP.textContent = `Colour: ${car.colour}`;
+        card.appendChild(colourP);
+
+        const yearP = document.createElement("p");
+        yearP.textContent = `Year: ${car.year}`;
+        card.appendChild(yearP);
+
+        const mileageP = document.createElement("p");
+        mileageP.textContent = `Mileage: ${car.mileage.toLocaleString()} miles`;
+        card.appendChild(mileageP);
+
+        const priceP = document.createElement("p");
+        priceP.className = "price";
+        priceP.textContent = `Price: £${car.price.toLocaleString()}`;
+        card.appendChild(priceP);
+
+        const deleteBtn = document.createElement("button"); 
+        deleteBtn.textContent = "Delete"; 
+        deleteBtn.addEventListener("click", () => deleteCar(car.id)); 
+        card.appendChild(deleteBtn); 
+
+        listings.appendChild(card);
+     });       
+}
 
 function getFilteredCars() {
     const searchTerm = document.getElementById("search-bar").value.toLowerCase();
