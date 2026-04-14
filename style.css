@@ -22,8 +22,12 @@ body {
     margin-bottom: 30px;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
+#add-car-form label {
+    display: block;
+    margin-bottom: 10px;
+}
 #add-car-form button {
-    padding: 8px 16px;
+    padding: 6px 8px;
     background-color: #2ecc71;
     color: white;
     border: none;

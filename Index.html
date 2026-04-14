@@ -7,15 +7,46 @@
   </head>
   <body>
     <h1>Ste's Car Search</h1>
-    <input type="text" id="search-bar" placeholder="Search by make or model.">
+    <label>
+      Search
+      <input type="text" id="search-bar" placeholder="Search by make or model.">
+    </label>
     <section id="add-car-form">
         <h2>Add a Car</h2>
-        <input type="text" id="input-make" placeholder="Make (e.g. Ford)" maxlength="50">
-        <input type="text" id="input-model" placeholder="Model (e.g. Focus)" maxlength="50">
-        <input type="text" id="input-colour" placeholder="Colour (e.g. Red)" maxlength="50">
-        <input type="number" id="input-year" placeholder="Year (e.g. 2020)" min="1900" max="2030">
-        <input type="number" id="input-price" placeholder="Price (e.g. 5400)" min="0" max="100000">
-        <input type="number" id="input-mileage" placeholder="Mileage (e.g. 50000)" min="0">
+        <label>
+          Fuel Type
+          <select id="input-fueltype">
+            <option value="">Select fuel type</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Electric">Electric</option>
+          </select>
+        </label>
+        <label>
+          Make
+          <input type="text" id="input-make" placeholder="(e.g. Ford)" maxlength="50">
+        </label>
+        <label>
+          Model
+          <input type="text" id="input-model" placeholder="(e.g. Focus)" maxlength="50">
+        </label>
+        <label>
+          Colour
+          <input type="text" id="input-colour" placeholder="(e.g. Red)" maxlength="50">
+        </label>
+        <label>
+          Year
+          <input type="number" id="input-year" placeholder="(e.g. 2020)" min="1900" max="2030">
+        </label>
+        <label>
+          Mileage
+          <input type="number" id="input-mileage" placeholder="(e.g. 50000)" min="0">
+        </label>
+        <label>
+          Price (£)
+          <input type="number" id="input-price" placeholder="(e.g. 5400)" min="0" max="100000">
+        </label>
         <button type="button" id="add-car-btn">Add Car</button>
     </section>
     <p id="form-error" class="error-message"></p>
