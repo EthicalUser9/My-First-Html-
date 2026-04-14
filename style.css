@@ -30,6 +30,9 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
+#add-car-form button:hover {
+    background-color: #62249c;
+}
 .car-card {
     background: white;
     padding: 15px;
@@ -52,8 +55,9 @@ body {
     cursor: pointer;
 }
 .car-card button:hover {
-    background-color: #c0392b;
+    background-color: #62249c;
 }
+
 .invalid {
     border: 2px solid #e01e08 !important;
 }
