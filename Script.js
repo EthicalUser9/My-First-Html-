@@ -72,16 +72,26 @@ function displayCars(carList) {
 
 function getFilteredCars() {
     const searchTerm = document.getElementById("search-bar").value.toLowerCase();
-    if (!searchTerm) return cars;
-    return cars.filter(car =>
-        car.make.toLowerCase().includes(searchTerm) ||
-        car.model.toLowerCase().includes(searchTerm)
-    );
+    const fuelFilter = document.getElementById("filter-fueltype").value;
+
+    return cars.filter(car => {
+        const matchesSearch =
+            car.make.toLowerCase().includes(searchTerm) ||
+            car.model.toLowerCase().includes(searchTerm);
+
+        const matchesFuel = !fuelFilter || car.fueltype === fuelFilter;
+
+        return matchesSearch && matchesFuel;
+    });
 }
 
 document.getElementById("add-car-btn").addEventListener("click", addCar);
 
 document.getElementById("search-bar").addEventListener("input", () => {
+    displayCars(getFilteredCars());
+});
+
+document.getElementById("filter-fueltype").addEventListener("change", () => {
     displayCars(getFilteredCars());
 });
 

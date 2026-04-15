@@ -9,7 +9,17 @@
     <h1>Ste's Car Search</h1>
     <label>
       Search
-      <input type="text" id="search-bar" placeholder="Search by make or model.">
+      <input type="text" id="search-bar" placeholder="By Make or Model.">
+    </label>
+    <label>
+      Filter by Fuel Type
+      <select id="filter-fueltype">
+        <option value="">All Fuel Types</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Electric">Electric</option>
+      </select>
     </label>
     <section id="add-car-form">
         <h2>Add a Car</h2>
@@ -25,27 +35,27 @@
         </label>
         <label>
           Make
-          <input type="text" id="input-make" placeholder="(e.g. Ford)" maxlength="50">
+          <input type="text" id="input-make" placeholder="(Ford)" maxlength="50">
         </label>
         <label>
           Model
-          <input type="text" id="input-model" placeholder="(e.g. Focus)" maxlength="50">
+          <input type="text" id="input-model" placeholder="(Focus)" maxlength="50">
         </label>
         <label>
           Colour
-          <input type="text" id="input-colour" placeholder="(e.g. Red)" maxlength="50">
+          <input type="text" id="input-colour" placeholder="(Red)" maxlength="50">
         </label>
         <label>
           Year
-          <input type="number" id="input-year" placeholder="(e.g. 2020)" min="1900" max="2030">
+          <input type="number" id="input-year" placeholder="(2026)" min="1900" max="2030">
         </label>
         <label>
           Mileage
-          <input type="number" id="input-mileage" placeholder="(e.g. 50000)" min="0">
+          <input type="number" id="input-mileage" placeholder="(50000)" min="0">
         </label>
         <label>
           Price (£)
-          <input type="number" id="input-price" placeholder="(e.g. 5400)" min="0" max="100000">
+          <input type="number" id="input-price" placeholder="(5400)" min="0" max="100000">
         </label>
         <button type="button" id="add-car-btn">Add Car</button>
     </section>
