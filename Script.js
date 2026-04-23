@@ -126,7 +126,7 @@ function addCar() {
     });
 
     ["make", "model", "fueltype", "colour"].forEach(key => {
-    if (fields[key].value.trim().length > 50) {
+    if (fields[key].value.trim().length > 30) {
       fields[key].classList.add("invalid");
       valid = false;
       }
