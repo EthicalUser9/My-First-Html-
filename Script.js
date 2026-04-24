@@ -34,7 +34,7 @@ function displayCars(carList) {
 
     carList.forEach(car => {
         const card = document.createElement("article");
-        card.className ="car-card";
+        card.className = "car-card";
 
         const title = document.createElement("h2");
         title.textContent = `${car.make} ${car.model}`;
