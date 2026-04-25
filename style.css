@@ -80,8 +80,8 @@ h1 {
     background-color: #62249c;
 }
 
-.invalid {
-    border: 2px solid #e01e08 !important;
+input.invalid, select.invalid {
+    border: 2px solid #e01e08;
 }
 .error-message {
     color: #e01e08;
