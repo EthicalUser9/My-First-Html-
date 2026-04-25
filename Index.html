@@ -27,7 +27,7 @@
         <option value="Electric">Electric</option>
       </select>
     </label>
-    <section id="add-car-form">
+    <form id="add-car-form">
         <h2>Add a Car</h2>
         <label>
           Fuel Type
@@ -63,10 +63,10 @@
           Price (£)
           <input type="number" id="input-price" placeholder="(5400)" min="0" max="100000">
         </label>
-        <button type="button" id="add-car-btn">Add Car</button>
-    </section>
+        <button type="submit" id="add-car-btn">Add Car</button>
+    </form>
     <p id="form-error" class="error-message"></p>
-    <section id="car-listings"></section>
+    <section id="car-listings" aria-live="polite"></section>
 
     <script src="script.js"></script>
   </body>

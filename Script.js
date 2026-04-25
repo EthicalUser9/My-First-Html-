@@ -1,4 +1,6 @@
-const cars = [
+const storedCars = localStorage.getItem("cars");
+
+const cars = storedCars ? JSON.parse(storedCars) : [
     { id: 1, make: "Ford", model: "Focus", year: 2019, price: 8500, mileage: 45000, fueltype: "Petrol", colour: "Blue" },
     { id: 2, make: "BMW", model: "3 Series", year: 2020, price: 22000, mileage: 30000, fueltype: "Diesel", colour: "Black" },
     { id: 3, make: "Toyota", model: "Corolla", year: 2018, price: 5000, mileage: 60000, fueltype: "Hybrid", colour: "Red" },
@@ -85,7 +87,7 @@ function getFilteredCars() {
     });
 }
 
-document.getElementById("add-car-btn").addEventListener("click", addCar);
+document.getElementById("add-car-form").addEventListener("submit", addCar);
 
 document.getElementById("search-bar").addEventListener("input", () => {
     displayCars(getFilteredCars());
@@ -100,10 +102,12 @@ function deleteCar(id) {
     if (index !== -1) {
         cars.splice(index, 1);
     }
+    localStorage.setItem("cars", JSON.stringify(cars));
     displayCars(getFilteredCars());
 }
 
-function addCar() {
+function addCar(event) {
+    event.preventDefault();
     const fields = {
         make: document.getElementById("input-make"),
         model: document.getElementById("input-model"),
@@ -164,6 +168,8 @@ function addCar() {
         price: price,
         mileage: mileage,
     });
+
+    localStorage.setItem("cars", JSON.stringify(cars));
 
     Object.values(fields).forEach(field => field.value = "");
     document.getElementById("form-error").textContent = "";
